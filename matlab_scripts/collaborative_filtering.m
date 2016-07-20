@@ -3,8 +3,6 @@ fprintf('Loading movie ratings dataset.\n\n');
 %  Load data
 load ('movie_data.mat');
 
-disp(R(1:100, 1:100));
-
 fprintf('Average rating for movie 1 (Toy Story): %f / 5\n\n', ...
         mean(Y(1, R(1, :))));
     

@@ -1,4 +1,4 @@
-function [J, grad] = cofiCostFunc(params, Y, R, num_users, num_movies, ...
+function [J, grad] = costFunction(params, Y, R, num_users, num_movies, ...
                                   num_features, lambda)
 %COFICOSTFUNC Collaborative filtering cost function
 %   [J, grad] = COFICOSTFUNC(params, Y, R, num_users, num_movies, ...
@@ -11,7 +11,7 @@ X = reshape(params(1:num_movies*num_features), num_movies, num_features);
 Theta = reshape(params(num_movies*num_features+1:end), ...
                 num_users, num_features);
 
-            
+
 % The following values should be returned correctly
 J = 0;
 X_grad = zeros(size(X));

@@ -5,7 +5,7 @@ load ('movie_data.mat');
 
 fprintf('Average rating for movie 1 (Toy Story): %f / 5\n\n', ...
         mean(Y(1, R(1, :))));
-    
+
 fprintf('Total number of ratings in the dataset: %d \n\n', ...
     sum(R(:)));
 
@@ -23,7 +23,7 @@ colorbar;
 
 
 % Load movie list
-movieList = loadMovieList();
+movieList = loadMovies();
 
 % Insert some of my own ratings based on movie indices in the list
 my_ratings = zeros(10329, 1);
@@ -56,7 +56,7 @@ my_ratings(10138) = 1; % Kingsman: Secret Service
 
 fprintf('\n\nNew user ratings:\n');
 for i = 1:length(my_ratings)
-    if my_ratings(i) > 0 
+    if my_ratings(i) > 0
         fprintf('Rated %0.1f for %s\n', my_ratings(i), ...
                  movieList{i});
     end
@@ -86,7 +86,7 @@ options = optimset('GradObj', 'on', 'MaxIter', 200);
 
 % Set Regularization
 lambda = 1;
-theta = fmincg (@(t)(cofiCostFunc(t, Ynorm, R, num_users, num_movies, ...
+theta = fmincg (@(t)(costFunction(t, Ynorm, R, num_users, num_movies, ...
                                 num_features, lambda)), ...
                 initial_parameters, options);
 

@@ -82,7 +82,7 @@ Theta = randn(num_users, num_features);
 initial_parameters = [X(:); Theta(:)];
 
 % Set options for fmincg
-options = optimset('GradObj', 'on', 'MaxIter', 200);
+options = optimset('GradObj', 'on', 'MaxIter', 150);
 
 % Set Regularization
 lambda = 1;
